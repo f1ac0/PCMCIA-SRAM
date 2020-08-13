@@ -6,12 +6,12 @@ Second hand commercial PCMCIA SRAM cards are rare and expensive. Sakura-IT once 
 About the project :
 - It works in A600 and A1200. It is not tested with any other device. It is 16bit only and does not implement 8bit mode that is required to be compliant to the PCMCIA standard.
 - It might work as storage, but is not tested. If you need storage you should just use a CF card and adapter anyway. These days nobody would lose their time fitting a battery in a RAM card.
-- It is shorter than a regular PCMCIA card, to be more convenient in our Amiga comuters. It is thin enough to fit a standard PCMCIA case. You can fit it in the case and connector of a cheap and available PCMCIA CF adapter. 
+- It is shorter than a regular PCMCIA card, to be more convenient in our Amiga computers. It is thin enough to fit a standard PCMCIA case. You can fit it in the case and connector of a cheap and available PCMCIA CF adapter. 
 - It uses components available in 2020. This is important since there have been several designs but many are already obsolete. Reusing the connector of the aforementioned adapter could be important since they are not so common.
 - It uses a 5V SRAM chip to get rid of the level converters. These converters take PCB space, have a cost, and need time to solder. The RAM chip is pricey however, so you might chose to make a 2MB card using just one of it.
 - The SRAM chip is fast and the CIS advertise the fastest speed possible. Thanks to this the A600 and A1200 runs faster : they benefit from the added RAM with direct access for the CPU, at least for 16bit applications on the A1200. 
 
-About PCMCIA in amiga computers, you should already know that its address space is sometimes used by internal accelerators and cannot be used at the same time. If you have such an accelerator, you might not be interersted to use this project in the same computer anyway. 
+About PCMCIA in Amiga computers, you should already know that its address space is sometimes used by internal accelerators and cannot be used at the same time. If you have such an accelerator, you might not be interested to use this project in the same computer anyway. 
 
 # Disclaimer
 This is a hobbyist project, it comes with no warranty and no support. Also remember that the Amiga machines are about 30 years old and may fail because of such hardware expansions.
@@ -31,7 +31,7 @@ If you find it useful and want to reward me : I am always looking for Amiga/Amst
 - 1x female 68pin PCMCIA connector, or a PCMCIA CF adapter from which you will reuse the connector and case
 
 # Making it
-I recommend 0.6mm or 0.8mm PCB since it needs to accomodate the PCMCIA connector and height.
+I recommend 0.6mm or 0.8mm PCB since it needs to accommodate the PCMCIA connector and height.
 
 Components are SMD, and TSOP RAM have thin pin pitch. You need to know what you are doing.
 
@@ -45,7 +45,7 @@ NOTE : There are solder pads on the PCB that could be used to implement 8/16bit 
 
 # Case
 To reuse a PCMCIA CF adapter case and connector you first need to disassemble the two metal parts from the plastic body.
-- The metal parts are identical and held together by hooks every cm on their long sides. Place the adapter vertically with the long side on the bench. Insert a knife blade between the platic and the metal on the side of the CF opening, cut the glue, and push down to remove the first hook. The hooks on each side are alternated, so after opening one one the left you need to open the next from the right, and so on. Do the same on the other log side. The two remaining hooks are on the short side besides the PCMCIA connector, and the metal part is glued to the PCMCIA connector.
+- The metal parts are identical and held together by hooks every cm on their long sides. Place the adapter vertically with the long side on the bench. Insert a knife blade between the plastic and the metal on the side of the CF opening, cut the glue, and push down to remove the first hook. The hooks on each side are alternated, so after opening one one the left you need to open the next from the right, and so on. Do the same on the other log side. The two remaining hooks are on the short side besides the PCMCIA connector, and the metal part is glued to the PCMCIA connector.
 - To desolder the connector from the PCB : lift each pin carefully. Use flux.
 - Before soldering the PCMCIA connector to your PCB, bend the pins back to their original place so they will make contact to the PCB. Make sure the board and connector are correctly lined up.
 - Cut the indent in the plastic body so you can place the board with soldered connector inside. Cut the plastic body 1 or 2 mm longer than the PCB end.
