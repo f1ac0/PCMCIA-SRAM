@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 1 1
 Title "PCMCIA SRAM"
 Date "2020-04-19"
-Rev "v0.1"
+Rev "v1.0"
 Comp "FLACO 2019 - Creative Commons Attribution-ShareAlike 4.0 license"
 Comment1 "Inspired by Sakura designs https://github.com/Sakura-IT/ppa-pcmcia-sram"
 Comment2 "Simplified to use 5v parts available in 2020"
@@ -833,34 +833,34 @@ Text Notes 5500 5650 0    50   ~ 0
 Text Notes 5500 6100 0    50   ~ 0
 4MB
 $Comp
-L Jumper:SolderJumper_2_Open JP2
+L Jumper:SolderJumper_2_Bridged JP2
 U 1 1 5EA351D7
 P 5450 7000
 F 0 "JP2" H 5450 7205 50  0000 C CNN
 F 1 "D15 direct" H 5450 7114 50  0000 C CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 5450 7000 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm" H 5450 7000 50  0001 C CNN
 F 3 "~" H 5450 7000 50  0001 C CNN
 	1    5450 7000
 	1    0    0    -1  
 $EndComp
 $Comp
-L Jumper:SolderJumper_2_Bridged JP3
+L Jumper:SolderJumper_2_Open JP3
 U 1 1 5EA362F2
 P 5800 7250
 F 0 "JP3" V 5754 7318 50  0000 L CNN
 F 1 "D15 A0" V 5845 7318 50  0000 L CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm" H 5800 7250 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 5800 7250 50  0001 C CNN
 F 3 "~" H 5800 7250 50  0001 C CNN
 	1    5800 7250
 	0    1    1    0   
 $EndComp
 $Comp
-L Jumper:SolderJumper_2_Bridged JP1
+L Jumper:SolderJumper_2_Open JP1
 U 1 1 5EA3899D
 P 5100 7250
 F 0 "JP1" V 5054 7318 50  0000 L CNN
 F 1 "D15 pcmcia" V 5145 7318 50  0000 L CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm" H 5100 7250 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 5100 7250 50  0001 C CNN
 F 3 "~" H 5100 7250 50  0001 C CNN
 	1    5100 7250
 	0    1    1    0   
@@ -1051,17 +1051,6 @@ F 3 "" H 6650 7100 50  0001 C CNN
 	1    6650 7100
 	1    0    0    -1  
 $EndComp
-$Comp
-L Jumper:SolderJumper_3_Bridged12 JP7
-U 1 1 5E9C4B12
-P 6650 7300
-F 0 "JP7" V 6696 7368 50  0000 L CNN
-F 1 "_BYTE" V 6605 7368 50  0000 L CNN
-F 2 "Jumper:SolderJumper-3_P1.3mm_Bridged12_RoundedPad1.0x1.5mm" H 6650 7300 50  0001 C CNN
-F 3 "~" H 6650 7300 50  0001 C CNN
-	1    6650 7300
-	0    1    -1   0   
-$EndComp
 Text Label 6650 7500 2    50   ~ 0
 _BYTE_A
 $Comp
@@ -1104,19 +1093,19 @@ NoConn ~ 5150 3800
 NoConn ~ 5150 3900
 NoConn ~ 5150 4000
 Wire Notes Line
-	6950 6550 6950 7750
+	6950 6450 6950 7750
 Wire Notes Line
 	6950 7750 500  7750
 Wire Notes Line
-	500  7750 500  6550
+	500  7750 500  6450
 Wire Notes Line
-	500  6550 6950 6550
+	500  6450 6950 6450
 Text Notes 4250 1800 0    50   ~ 0
 CPLD logic
 Text Notes 8700 1250 0    50   ~ 0
 CPLD programming
 Text Notes 550  7650 0    50   ~ 0
-WARNING : the whole thing is untested and moght not work at all !\nNot sure if the PCMCIA 8bit feature, which makes the "Odd byte" available on D7:D0, is necessary in our case.\nNot sure if dynamically changing the BYTE# signal will work, and if the IO15_Axx signal will effectively select\nthe correct bytes. According to Cypress this should not work : https://community.cypress.com/message/231471\n- To bypass the 8bit feature, close "D15 direct" and open the two other links, and tie _BYTE to 5V\n- To try the workaround, open "D15 direct" and close the other links, and connect _BYTE to the CPLD\nWhen processed by the CPLD :\n- In 8 bit mode (_CE1=0 & _CE2=1 & A0=1), _BYTE=0, D15_A0=1, and D15=Z\n- In 16 bit mode,\n    - _BYTE=1,\n    - D15 is output to D15_A0 when _WE=0,\n    - D15_A0 is output to D15 when _OE=0 & CE_SINGLE=1 & _CE2=0
+Odd-byte-low feature:\nThe PCMCIA 8bit feature, which makes the "Odd byte" available on D7:D0, is not necessary for Amiga computers.\n- To bypass the 8bit feature, close "D15 direct", open the two other links, and tie _BYTE to 5V. This is the default.\n\nFor other systems:\nNot sure if dynamically changing the BYTE# signal will work, and if the IO15_Axx signal will effectively select\nthe correct bytes. According to Cypress this should not work : https://community.cypress.com/message/231471\n- To try the workaround, open "D15 direct" and close the other links, and connect _BYTE to the CPLD\nWhen processed by the CPLD :\n- In 8 bit mode (_CE1=0 & _CE2=1 & A0=1), _BYTE=0, D15_A0=1, and D15=Z\n- In 16 bit mode,\n    - _BYTE=1,\n    - D15 is output to D15_A0 when _WE=0,\n    - D15_A0 is output to D15 when _OE=0 & CE_SINGLE=1 & _CE2=0
 $Comp
 L Mechanical:Fiducial FID1
 U 1 1 5EB454F8
@@ -1127,5 +1116,16 @@ F 2 "Sassa:CC_BY_SA_long_silkscreen_14x5.5mm" H 10800 6400 50  0001 C CNN
 F 3 "~" H 10800 6400 50  0001 C CNN
 	1    10800 6400
 	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_3_Bridged12 JP7
+U 1 1 5E9C4B12
+P 6650 7300
+F 0 "JP7" V 6696 7368 50  0000 L CNN
+F 1 "_BYTE" V 6605 7368 50  0000 L CNN
+F 2 "Jumper:SolderJumper-3_P1.3mm_Bridged12_RoundedPad1.0x1.5mm" H 6650 7300 50  0001 C CNN
+F 3 "~" H 6650 7300 50  0001 C CNN
+	1    6650 7300
+	0    1    1    0   
 $EndComp
 $EndSCHEMATC
