@@ -1,0 +1,42 @@
+# control signals from PCMCIA
+NET "_CE1" LOC = "3";
+NET "_CE2" LOC = "2";
+NET "_REG" LOC = "32";
+NET "_OE" LOC = "33";  # OE from PCMCIA
+NET "_WE" LOC = "38";
+NET "A0" LOC = "31"; # address bus bit 0
+NET "A21" LOC = "37";
+NET "D15" LOC = "34";
+
+# switches/jumpers
+NET "DISK_RAM" LOC = "22";
+NET "RAM_SIZE" LOC = "23";
+
+# control signals to memory
+NET "CE_HIGH" LOC = "12";
+NET "CE_LOW" LOC = "1";
+NET "CE_SINGLE" LOC = "44";
+NET "D15_A0" LOC = "36";
+NET "_BYTE" LOC = "13";
+#NET "oe_even" LOC = "33";
+#NET "oe_oddlow" LOC = "29";
+#NET "oe_odd" LOC = "28";
+#NET "ce_attr_external" LOC = "25";
+
+# address bus (in fact A1-A5)
+NET "A<1>" LOC = "43";
+NET "A<2>" LOC = "42";
+NET "A<3>" LOC = "41";
+NET "A<4>" LOC = "40";
+NET "A<5>" LOC = "39";
+
+# lowest 8 bits of data bus
+NET "D<0>" LOC = "30";
+NET "D<1>" LOC = "29";
+NET "D<2>" LOC = "28";
+NET "D<3>" LOC = "14";
+NET "D<4>" LOC = "8";
+NET "D<5>" LOC = "7";
+NET "D<6>" LOC = "6";
+NET "D<7>" LOC = "5";
+
