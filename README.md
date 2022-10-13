@@ -16,9 +16,7 @@ About PCMCIA in Amiga computers, you should already know that its address space 
 # Disclaimer
 This is a hobbyist project, it comes with no warranty and no support. Also remember that the Amiga machines are about 30 years old and may fail because of such hardware expansions.
 
-This version is not connected to Sakura-IT, please don't bother them with issues you might have because of it.
-
-I publish this work using the CC-BY-SA license.
+I publish my work under the CC-BY-NC-SA license. The content of this repository is the result of weeks of work, requiring investment in tools, parts, prototypes, and risky tests on his own equipment. For this reason the author does not want third parties to sell products and keep all the profit, usually without even offering support to their customers. If you see people selling this without the consent of the author, don't buy from them.
 
 If you find it useful and want to reward me : I am always looking for Amiga/Amstrad CPC hardware to repair and hack, please contact me.
 
